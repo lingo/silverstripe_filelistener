@@ -2,28 +2,31 @@
 /**
  * A flexible and generic File event Listener system
  *
- * Authors:
- *		Frank Winkelmann <spliff.splendor@gmail.com>
- * 		Luke Hudson <lukeletters@gmail.com>
+ * @author	Frank Winkelmann <spliff.splendor@gmail.com>
+ *
+ * @author	Luke Hudson <lukeletters@gmail.com>
  *
  * Allows you to register for notifications about changes to File/Image objects
  * and their subclasses.
  *
  * Usage:
+ * <code>
  * 	FileListenerDecorator::register_listener(ClassName, static_method_name, event_type);
+ * </code>
  *
  * Event Types:
  *
- *		create
- * 		update
- * 		delete
- * 		all
+ *		- create
+ * 		- update
+ * 		- delete
+ * 		- all
  *
  * Your class provides a static method which will receive the updated record
  * AFTER writing.
  * Example:
- *
+ * <code>
  * 		public static function on_file_notify($file, $event)
+ * </code>
  *
  * This will be called for each changed File (or subclass) object, with $event
  * set to the relevant event type (as shown above)
@@ -46,7 +49,6 @@ class FileListenerDecorator extends DataObjectDecorator {
 	 * @param string $eventType -- One of the Event Types listed above (create/update/delete/all)
 	 */
 	public static function register_listener($className, $callback, $eventType = 'all') {
-		self::$listeners[$className] = $callback;
 		if ($eventType != 'all') {
 			self::$listeners[$className][$eventType] = $callback;
 		} else {
@@ -63,9 +65,11 @@ class FileListenerDecorator extends DataObjectDecorator {
 	 * @param string $event 
 	 */
 	protected function notify($file, $event) {
-		foreach(self::$listeners as $class => $method) {
-			$ret = call_user_func(array($class, $method), $file, $event);
-			// TODO: do we do anything with return value?
+		foreach(self::$listeners as $class => $data) {
+			if (isset($data[$event])) {
+				$ret = call_user_func(array($class, $data[$event]), $file, $event);
+				// TODO: do we do anything with return value?
+			}
 		}
 	}
 
