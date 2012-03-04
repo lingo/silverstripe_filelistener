@@ -23,9 +23,14 @@
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">A flexible and generic File event Listener system</p>
-<p class="description"><p>Authors: 		Frank Winkelmann &lt;spliff.splendor@gmail.com&gt;  		Luke Hudson &lt;lukeletters@gmail.com&gt;</p><p>Allows you to register for notifications about changes to File/Image objects  and their subclasses.</p><p>Usage:  	FileListenerDecorator::register_listener(ClassName, static_method_name, event_type);</p><p>Event Types:</p><p>create  		update  		delete  		all</p><p>Your class provides a static method which will receive the updated record  AFTER writing.  Example:</p><p>public static function on_file_notify($file, $event)</p><p>This will be called for each changed File (or subclass) object, with $event  set to the relevant event type (as shown above)</p><p>This static method may inspect the changedFields and decide how to process  the changes.</p><p>CAVEAT:  Dont write() File objects within your static method, results are  unknown!</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Frank Winkelmann &lt;<a href="mailto:spliff.splendor@gmail.com">spliff.splendor@gmail.com</a>&gt;</li>
+				<li><span class="field">author:</span> <p>Luke Hudson &lt;<a href="mailto:lukeletters@gmail.com">lukeletters@gmail.com</a>&gt;</p><p>Allows you to register for notifications about changes to File/Image objects  and their subclasses.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id"><a href="../default/FileListenerDecorator.html">FileListenerDecorator</a></span><span class="src-sym">::</span><a href="../default/FileListenerDecorator.html#methodregister_listener">register_listener</a><span class="src-sym">(</span><span class="src-id">ClassName</span><span class="src-sym">,&nbsp;</span><span class="src-id">static_method_name</span><span class="src-sym">,&nbsp;</span><span class="src-id">event_type</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Event Types:</p><p><ul></ul><ul><li>update</li><li>delete</li><li>all</li></ul>  Your class provides a static method which will receive the updated record  AFTER writing.  Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">on_file_notify</span><span class="src-sym">(</span><span class="src-var">$file</span><span class="src-sym">,&nbsp;</span><span class="src-var">$event</span><span class="src-sym">)</span></div></li>
+</ol></div></p><p>This will be called for each changed File (or subclass) object, with $event  set to the relevant event type (as shown above)</p><p>This static method may inspect the changedFields and decide how to process  the changes.</p><p>CAVEAT:  Dont write() File objects within your static method, results are  unknown!</p></li>
+			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_FileListenerDecorator.php.html">/FileListenerDecorator.php</a> (line <span class="field">38</span>)
+			Located in <a class="field" href="_FileListenerDecorator.php.html">/FileListenerDecorator.php</a> (line <span class="field">41</span>)
 		</p>
 		
 				
@@ -120,7 +125,7 @@
 		<span class="var-title">
 			static <span class="var-type">mixed</span>
 			<span class="var-name">$listeners</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">39</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">42</span>)
 		</span>
 	</div>
 
@@ -153,7 +158,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method register_listener</span> (line <span class="line-number">48</span>)
+		<span class="method-title">static method register_listener</span> (line <span class="line-number">51</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -190,7 +195,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">notify</span> (line <span class="line-number">65</span>)
+		<span class="method-title">notify</span> (line <span class="line-number">68</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -222,7 +227,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">onAfterDelete</span> (line <span class="line-number">92</span>)
+		<span class="method-title">onAfterDelete</span> (line <span class="line-number">97</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -247,7 +252,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">onAfterUpload</span> (line <span class="line-number">76</span>)
+		<span class="method-title">onAfterUpload</span> (line <span class="line-number">81</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -272,7 +277,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">onAfterWrite</span> (line <span class="line-number">102</span>)
+		<span class="method-title">onAfterWrite</span> (line <span class="line-number">107</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -299,7 +304,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sun, 04 Mar 2012 20:31:31 +1300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+		Documentation generated on Sun, 04 Mar 2012 23:47:19 +1300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
 	</p>
 	</div></body>
 </html>
