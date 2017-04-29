@@ -5,7 +5,7 @@ Allows you to register for notifications about changes to File or Image objects 
 ## Usage
 
 ```php
-     FileListenerDecorator::register_listener(ClassName, static_method_name, event_type);
+     FileListenerDecorator::register_listener($className, $staticMethodName, $eventType);
 ```
 
 ## Event Types:
